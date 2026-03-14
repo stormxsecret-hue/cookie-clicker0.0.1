@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cookie Clicker Master Edition</title>
+</head>
+<body>
+
+    <div id="background-container"></div>
+
+    <img src="images/shop.png" id="shop-icon" onclick="toggleOverlay('shop-overlay')" alt="Boutique">
+    <img src="images/settings.png" id="settings-icon" onclick="toggleOverlay('settings-overlay')" alt="Options">
+    
+    <img src="images/crown.png" id="admin-icon" onclick="toggleOverlay('admin-overlay')" alt="Admin">
+    <img src="images/speaker.png" id="sound-icon" onclick="toggleOverlay('soundboard-overlay')" alt="Soundboard">
+
+    <div id="music-control" onclick="toggleMusic()">
+        <img src="images/music_on.png" id="music-img" alt="Musique">
+    </div>
+    <div id="badge-control" onclick="toggleOverlay('badge-overlay')">
+        <img src="images/trophy.png" id="trophy-img" alt="Badges">
+    </div>
+
+    <div id="og-badge-display">OG</div>
+    <div id="tuto-bubble"></div>
+
+    <div class="stats-container">
+        <div class="stats">Cookies : <span id="count">0</span></div>
+        <div class="profit">Auto : +<span id="pps">0</span>/s | Clic : +<span id="click-power">1</span></div>
+        <div id="combo-text">COMBO: x1</div>
+    </div>
+    
+    <img src="images/cookie.png" id="cookie" alt="Cookie">
+
+    <div id="soundboard-overlay" class="overlay">
+        <div class="modal">
+            <span class="close" onclick="toggleOverlay('soundboard-overlay')">✖</span>
+            <h2 style="color: #3498db;">SOUNDBOARD</h2>
+            <div class="sound-grid">
+                <button onclick="playSB(1)">Son 1</button><button onclick="playSB(2)">Son 2</button>
+                <button onclick="playSB(3)">Son 3</button><button onclick="playSB(4)">Son 4</button>
+                <button onclick="playSB(5)">Son 5</button><button onclick="playSB(6)">Son 6</button>
+                <button onclick="playSB(7)">Son 7</button><button onclick="playSB(8)">Son 8</button>
+                <button onclick="playSB(9)">Son 9</button><button onclick="playSB(10)">Son 10</button>
+            </div>
+            <button class="btn-reset" style="margin-top:15px; background:#95a5a6;" onclick="stopAllSounds()">Arrêter les sons</button>
+        </div>
+    </div>
+
+    <div id="admin-overlay" class="overlay">
+        <div class="modal admin-modal">
+            <span class="close" onclick="toggleOverlay('admin-overlay')">✖</span>
+            <h2 style="color: #f1c40f;">PANEL CRÉATEUR</h2>
+            <div class="admin-section">
+                <p>Ajouter des cookies :</p>
+                <input type="number" id="admin-cookie-input" placeholder="Nombre...">
+                <button class="btn-admin" onclick="adminGiveCookies()">Valider</button>
+            </div>
+            <hr class="separator">
+            <button class="btn-admin" onclick="adminAddClick()">+ 10 Force Clic</button>
+            <button class="btn-admin" id="btn-x5" onclick="adminToggleX5()">Multi x5 (OFF)</button>
+            <button class="btn-admin" style="background: #e74c3c; color: white;" onclick="fullReset()">RESET TOTAL</button>
+        </div>
+    </div>
+
+    <div id="shop-overlay" class="overlay">
+        <div class="modal">
+            <span class="close" onclick="toggleOverlay('shop-overlay')">✖</span>
+            <h2>BOUTIQUE</h2>
+            <div class="item"><p>Robot Mangeur (+1/s)</p><button id="buy-cursor" onclick="buyUpgrade()">Prix : 5</button></div>
+            <hr class="separator">
+            <div class="item"><p>Super Force (+1 clic)</p><button id="buy-click" onclick="buyClickUpgrade()">Prix : 15</button></div>
+        </div>
+    </div>
+
+    <div id="badge-overlay" class="overlay">
+        <div class="modal"><span class="close" onclick="toggleOverlay('badge-overlay')">✖</span><h2>TROPHÉES</h2><div id="badge-list"></div></div>
+    </div>
+
+    <div id="settings-overlay" class="overlay">
+        <div class="modal">
+            <span class="close" onclick="toggleOverlay('settings-overlay')">✖</span>
+            <h2>PARAMÈTRES</h2>
+            <input type="checkbox" id="save-toggle" onchange="toggleSaveLogic()"> Sauvegarde Auto
+            <hr class="separator">
+            <input type="text" id="code-input" placeholder="Code secret...">
+            <button onclick="checkCode()" id="btn-valider-code">Valider</button>
+            <p id="code-message"></p>
+            <button onclick="resetGame()" id="btn-reset">Réinitialiser Cookies</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script src="script.js"></script>
+    
+    <script src="intro.js"></script>
+</body>
+</body>
+</html>
